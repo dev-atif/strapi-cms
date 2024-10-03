@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Products",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 3
+    },
+    "Description": {
+      "type": "text",
+      "required": true,
+      "minLength": 15
+    },
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "minLength": 4,
+      "targetField": "title"
+    },
+    "price": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
+    },
+    "sale_price": {
+      "type": "biginteger"
+    },
+    "stock": {
+      "type": "biginteger",
+      "required": true
+    },
+    "details": {
+      "type": "blocks",
+      "required": true
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "gallary": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Sku": {
+      "type": "uid",
+      "required": true
+    },
+    "Size": {
+      "type": "json"
+    },
+    "Color": {
+      "type": "json"
+    },
+    "product_reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-review.product-review",
+      "mappedBy": "product"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    }
+  }
+}

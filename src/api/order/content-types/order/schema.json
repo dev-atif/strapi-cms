@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "Order_Status": {
+      "type": "enumeration",
+      "enum": [
+        "Confirm ",
+        "Not Confirm"
+      ],
+      "default": "Not Confirm"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "Payment_Method": {
+      "type": "string"
+    },
+    "Card_Holder_Name": {
+      "type": "string"
+    },
+    "Card_Number": {
+      "type": "biginteger"
+    },
+    "Expiration_Date": {
+      "type": "date"
+    },
+    "CVC": {
+      "type": "string"
+    },
+    "Total_Amount": {
+      "type": "biginteger"
+    },
+    "Products": {
+      "type": "json",
+      "required": true
+    },
+    "Customer_Name": {
+      "type": "string"
+    }
+  }
+}
